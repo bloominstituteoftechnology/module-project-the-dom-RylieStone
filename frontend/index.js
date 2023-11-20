@@ -18,7 +18,7 @@ function moduleProject1() {
   
   const qouterN = document.createElement("div")
   if (quotes[random].date === null) {
-    qouterN.textContent = quotes[random].author + " at an unknown date"
+    qouterN.textContent = quotes[random].author + " in an unknown date"
   } else {
     qouterN.textContent = quotes[random].author + " in " + quotes[random].date
   }
@@ -29,7 +29,7 @@ function moduleProject1() {
     return Math.floor(Math.random() * 10)
   }
   const speaker = document.createElement("p")
-  speaker.textContent = `We need to ${verbs[randomizer()]} our ${nouns[randomizer()]} ${adverbs[randomizer()]} in order to ${verbs[randomizer()]} our ${nouns[randomizer()]} ${adverbs[randomizer()]}`
+  speaker.textContent = `We need to ${verbs[randomizer()]} our ${nouns[randomizer()]} ${adverbs[randomizer()]} in order to ${verbs[randomizer()]} our ${nouns[randomizer()]} ${adverbs[randomizer()]}.`
   document.querySelector(".corporatespeak").appendChild(speaker)
   // 👉 TASK 4 - Build a "Countdown" widget
   //  ✨ add your code here
@@ -41,13 +41,13 @@ function moduleProject1() {
   document.querySelector(".countdown").appendChild(timer)
   
   let temp = setInterval(function() {
-    timer.textContent = `T-minus ${num}...`
     num--
+    timer.textContent = `T-minus ${num}...`
   }, 1000)
   setTimeout(function() {
     clearInterval(temp)
     timer.textContent = text
-  }, 6000)
+  }, 5000)
   // 👉 TASK 5 - Build a "Friends" widget
   //  ✨ add your code here
   let friend = people[Math.floor(Math.random() * 15)]
@@ -65,14 +65,14 @@ function moduleProject1() {
   const friendly = document.createElement("p")
   let final = []
   if (friends.length === 0) {
-    friendly.textContent = `${friend.fname} ${friend.lname} was born in ${friend.dateOfBirth.slice(0, 4)} and has no friends`
+    friendly.textContent = `${friend.fname} ${friend.lname} was born in ${friend.dateOfBirth.slice(0, 4)} and has no friends.`
   } else if (friends.length === 1) {
-    friendly.textContent = `${friend.fname} ${friend.lname} was born in ${friend.dateOfBirth.slice(0, 4)} and is friends with ${friends[0].fname} ${friends[0].lname}`
+    friendly.textContent = `${friend.fname} ${friend.lname} was born in ${friend.dateOfBirth.slice(0, 4)} and is friends with ${friends[0].fname} ${friends[0].lname}.`
   } else {
-    for (let i = 0; i < friends.length -1; i++) {
+    for (let i = 0; i < friends.length -2; i++) {
       final.push(` ${friends[i].fname} ${friends[i].lname}`)
     }
-    final.push(` and ${friends[friends.length -1].fname} ${friends[friends.length -1].lname}.`)
+    final.push(` ${friends[friends.length -2].fname} ${friends[friends.length -2].lname} and ${friends[friends.length -1].fname} ${friends[friends.length -1].lname}.`)
     friendly.textContent = `${friend.fname} ${friend.lname} was born in ${friend.dateOfBirth.slice(0, 4)} and is friends with ${final.toString()}`
   }
   document.querySelector(".friends").appendChild(friendly)
